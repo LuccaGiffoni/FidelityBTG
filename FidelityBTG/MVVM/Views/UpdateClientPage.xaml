@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FidelityBTG.MVVM.Views.UpdateClientPage"
+             xmlns:viewmodel="clr-namespace:FidelityBTG.MVVM.ViewModels"
+             Title="Atualizar Cliente"
+             x:DataType="viewmodel:UpdateClientViewModel">
+
+    <VerticalStackLayout Margin="20" Spacing="5">
+        <Grid ColumnDefinitions="0.75*, 0.25*" ColumnSpacing="20">
+            <VerticalStackLayout Grid.Column="0" Spacing="5">
+                <Grid ColumnDefinitions="*,*" HorizontalOptions="FillAndExpand">
+                    <Entry Grid.Column="0" Placeholder="Nome" Text="{Binding Client.Name}" />
+                    <Entry Grid.Column="1" Placeholder="Sobrenome" Text="{Binding Client.LastName}" />
+                </Grid>
+
+                <Entry Placeholder="Endereço" Text="{Binding Client.Address}" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="1" Spacing="5" HorizontalOptions="End">
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="Data de Nascimento" VerticalOptions="Center" />
+                    <DatePicker Date="{Binding Client.Birthday}" />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout>
+                    <Label Text="O usuário está ativo?" VerticalOptions="Center" />
+                    <CheckBox IsChecked="{Binding Client.IsActive}" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Grid>
+
+        <Button
+            Command="{Binding UpdateClientCommand}"
+            FontAttributes="Bold"
+            Text="Atualizar Cliente" />
+        
+    </VerticalStackLayout>
+</ContentPage>
