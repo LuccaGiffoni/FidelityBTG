@@ -28,3 +28,6 @@ Dos opcionais, não tive tempo hábil de projetar os testes de unidade.
 1. Clone este repositório em seu ambiente local.
 2. Abra a solução no Visual Studio ou em outro ambiente de desenvolvimento compatível com .NET Maui.
 3. Execute o aplicativo e teste as funcionalidades conforme descrito nos requisitos.
+
+## Testes da última release
+Os testes da aplicação também podem ser testados em máquinas Windows, ao baixar o .zip da última release liberada, instalando em side-load e autenticando com um novo certificado.
