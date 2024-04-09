@@ -1,4 +1,4 @@
-# Teste Técnico - Cadastro de Clientes BTG Pactual
+# Teste Técnico | Cadastro de Clientes BTG Pactual
 Bem-vindo ao teste técnico do BTG Pactual! Neste projeto, desenvolvi um aplicativo de cadastro de clientes utilizando .NET Maui na versão 8, com todas as vantagens da arquitetura MVVM.
 
 ## Requisitos
