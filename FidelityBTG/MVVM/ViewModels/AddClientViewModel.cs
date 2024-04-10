@@ -13,9 +13,27 @@ public partial class AddClientViewModel : ObservableObject
     [ObservableProperty] private string _lastName;
     [ObservableProperty] private string _address;
     [ObservableProperty] private DateTime _birthday;
-    [ObservableProperty] private bool _isActive;
+    [ObservableProperty] private bool _isActive = true;
 
-    public AddClientViewModel(IClientService clientService) => _clientService = clientService;
+    public Command MoveBackToMenu { get; set; }
+
+    public AddClientViewModel(IClientService clientService)
+    {
+        _clientService = clientService;
+        MoveBackToMenu = new Command(GoBackAsync);
+    }
+
+    private static async void GoBackAsync()
+    {
+        try
+        {
+            await Shell.Current.GoToAsync("..");
+        }
+        catch(Exception ex)
+        {
+            await Shell.Current.DisplayAlert("Error", ex.Message, "OK");
+        }
+    }
 
     [RelayCommand]
     private async Task AddClient()

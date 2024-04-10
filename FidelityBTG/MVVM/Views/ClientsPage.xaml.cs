@@ -19,8 +19,7 @@ public partial class ClientsPage : ContentPage
         base.OnAppearing();
 
         var viewModel = (ClientsViewModel)BindingContext;
-
-        viewModel.GetAllClientsCommand.Execute(null);
+        viewModel.GetAllClientsCommand.Execute(viewModel.Clients);
     }
 
     private async void SearchBar_TextChanged(object sender, TextChangedEventArgs e)

@@ -1,91 +1,91 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FidelityBTG.MVVM.Views.ClientsPage"
-             xmlns:model="clr-namespace:FidelityBTG.MVVM.Models"
-             xmlns:viewmodel="clr-namespace:FidelityBTG.MVVM.ViewModels"
-             Title="Clientes BTG Pactual"
-             x:DataType="viewmodel:ClientsViewModel">
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       x:Class="FidelityBTG.MVVM.Views.ClientsPage"
+       xmlns:model="clr-namespace:FidelityBTG.MVVM.Models"
+       xmlns:viewmodel="clr-namespace:FidelityBTG.MVVM.ViewModels"
+       x:DataType="viewmodel:ClientsViewModel">
 
-    <Grid
-        Margin="20"
-        RowDefinitions="Auto,*"
-        RowSpacing="10">
-        <Grid Grid.Row="0" ColumnDefinitions="*,*">
-            <SearchBar Grid.Column="0"
-                 Placeholder="Encontrar cliente por Nome"
-                 TextChanged="SearchBar_TextChanged"/>
-            <Button
-                Grid.Column="1"
-                Command="{Binding AddClientCommand}"
-                FontAttributes="Bold"
-                HorizontalOptions="End"
-                Text="Criar Cliente"
-                TextColor="Black" />
-        </Grid>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*" />
+            <RowDefinition Height="0.7*" />
+        </Grid.RowDefinitions>
+        
+        <VerticalStackLayout Spacing="50" Grid.Row="0" Margin="0, 40, 0, 0">
+            <StackLayout Spacing="-5">
+                <Label Text="Clube de Fidelidade" FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+                <Label Text="Lucca Giffoni x BTG Pactual" FontSize="Micro" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+            </StackLayout>
+            
+            <Grid RowDefinitions="Auto,*">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
 
-        <CollectionView x:Name="ClientsCollectionView" Grid.Row="1" ItemsSource="{Binding Clients}">
-            <CollectionView.ItemsLayout>
-                <LinearItemsLayout ItemSpacing="4" Orientation="Vertical" />
-            </CollectionView.ItemsLayout>
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="model:Client">
-                    <Border
-                        Padding="15"
-                        Stroke="Dimgray"
-                        StrokeThickness="2">
-                        <Border.StrokeShape>
-                            <RoundRectangle CornerRadius="10,10,10,10" />
-                        </Border.StrokeShape>
-                        <Grid RowDefinitions="Auto" RowSpacing="4">
-                            <Grid Grid.Row="1" RowDefinitions="Auto,Auto,Auto,Auto,Auto">
-                                <Label
-                                    Grid.Row="0"
-                                    FontAttributes="Bold"
-                                    FontSize="Medium"
-                                    Text="{Binding FullName}" />
-                                <Label
-                                    Grid.Row="1"
-                                    Margin="0,2"
-                                    FontSize="Small"
-                                    Text="{Binding Birthday, StringFormat='{0:dd/MM/yyyy}'}" />
-                                <Label
-                                    Grid.Row="2"
-                                    Margin="0,2"
-                                    FontSize="Small"
-                                    Text="{Binding Address}" />
-                                <HorizontalStackLayout Grid.Row="3">
-                                    <Label Text="O usuário está ativo?" VerticalOptions="Center" FontSize="Micro"/>
-                                    <CheckBox IsChecked="{Binding IsActive}" InputTransparent="True"/>
-                                </HorizontalStackLayout>
-                                <Grid
-                                    Grid.Row="4"
-                                    Margin="0,30,0,0"
-                                    ColumnDefinitions="Auto,Auto,*">
-                                    <Button
-                                        Grid.Column="0"
-                                        BackgroundColor="#4A88DA"
-                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ClientsViewModel}}, Path=UpdateClientCommand}"
-                                        CommandParameter="{Binding .}"
-                                        FontAttributes="Bold"
-                                        Text="Atualizar"
-                                        TextColor="#eff5f3" />
-                                    <Button
-                                        Grid.Column="1"
-                                        Margin="8,0"
-                                        BackgroundColor="#F44336"
-                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ClientsViewModel}}, Path=DeleteClientCommand}"
-                                        CommandParameter="{Binding .}"
-                                        FontAttributes="Bold"
-                                        Text="Deletar"
-                                        TextColor="#eff5f3" />
+                <SearchBar Grid.Column="0" Placeholder="Encontrar cliente por Nome" TextChanged="SearchBar_TextChanged"/>
+                <Button
+                    Grid.Column="1"
+                    Command="{Binding AddClientCommand}"
+                    BackgroundColor="Green"
+                    FontAttributes="Bold"
+                    HorizontalOptions="End"
+                    Text="Criar Cliente"
+                    TextColor="Black" />
+            </Grid>
+        </VerticalStackLayout>
+
+        <ScrollView Grid.Row="1">
+            <StackLayout Spacing="50" Margin="0, 50, 0, 0">
+
+                <CollectionView x:Name="ClientsCollectionView" ItemsSource="{Binding Clients}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="4" Orientation="Vertical" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Client">
+                            <Border Padding="15" Stroke="Dimgray" StrokeThickness="2">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10,10,10,10" />
+                                </Border.StrokeShape>
+
+                                <Grid RowDefinitions="Auto" RowSpacing="4">
+                                    <Grid Grid.Row="1" RowDefinitions="Auto,Auto,Auto,Auto,Auto">
+                                        <Label Grid.Row="0" FontAttributes="Bold" FontSize="Medium" Text="{Binding FullName}" />
+                                        <Label Grid.Row="1" Margin="0,2" FontSize="Small" Text="{Binding Birthday, StringFormat='{0:dd/MM/yyyy}'}" />
+                                        <Label Grid.Row="2" Margin="0,2" FontSize="Small" Text="{Binding Address}" />
+
+                                        <HorizontalStackLayout Grid.Row="3">
+                                            <Label Text="O usuário está ativo?" VerticalOptions="Center" FontSize="Micro"/>
+                                            <CheckBox IsChecked="{Binding IsActive}" InputTransparent="True"/>
+                                        </HorizontalStackLayout>
+
+                                        <Grid Grid.Row="4" Margin="0,30,0,0" ColumnDefinitions="Auto,Auto,*">
+                                            <Button
+                                                    Grid.Column="0"
+                                                    BackgroundColor="#4A88DA"
+                                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ClientsViewModel}}, Path=UpdateClientCommand}"
+                                                    CommandParameter="{Binding .}"
+                                                    FontAttributes="Bold"
+                                                    Text="Atualizar"
+                                                    TextColor="#eff5f3" />
+                                            <Button
+                                                    Grid.Column="1"
+                                                    Margin="8,0"
+                                                    BackgroundColor="#F44336"
+                                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ClientsViewModel}}, Path=DeleteClientCommand}"
+                                                    CommandParameter="{Binding .}"
+                                                    FontAttributes="Bold"
+                                                    Text="Deletar"
+                                                    TextColor="#eff5f3" />
+                                        </Grid>
+                                    </Grid>
                                 </Grid>
-                            </Grid>
-                        </Grid>
-                    </Border>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
     </Grid>
-
 </ContentPage>

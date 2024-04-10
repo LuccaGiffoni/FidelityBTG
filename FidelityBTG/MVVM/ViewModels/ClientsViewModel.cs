@@ -3,20 +3,14 @@ using CommunityToolkit.Mvvm.Input;
 using FidelityBTG.MVVM.Models;
 using FidelityBTG.Services;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 
 namespace FidelityBTG.MVVM.ViewModels;
 
-public partial class ClientsViewModel : ObservableObject
+public partial class ClientsViewModel(IClientService livroService) : ObservableObject
 {
-    private readonly IClientService _clientService;
+    private readonly IClientService _clientService = livroService;
 
-    public ObservableCollection<Client> Clients { get; set; } = new();
-
-    public ClientsViewModel(IClientService livroService)
-    {
-        _clientService = livroService;
-    }
+    public ObservableCollection<Client> Clients { get; set; } = [];
 
     [RelayCommand]
     public async Task GetAllClients()
@@ -44,23 +38,12 @@ public partial class ClientsViewModel : ObservableObject
 
     [RelayCommand] private static async Task AddClient() => await Shell.Current.GoToAsync("AddClientPage");
 
-    [RelayCommand]
-    private static async Task UpdateClient(Client client)
-    {
-        try
-        {
-            await Shell.Current.GoToAsync("UpdateClientPage", new Dictionary<string, object> { { "ClientObject", client } });
-        }
-        catch(Exception e)
-        {
-            Debug.WriteLine(e);
-        }
-    }
+    [RelayCommand] private static async Task UpdateClient(Client client) => await Shell.Current.GoToAsync("UpdateClientPage", new Dictionary<string, object> { { "ClientObject", client } });
 
     [RelayCommand]
     private async Task DeleteClient(Client client)
     {
-        var result = await Shell.Current.DisplayAlert("Deletar", $"Confirma exclusão do cliente : \n\n \"{client.Name + " " + client.LastName}\"?", "Sim", "Não");
+        var result = await Shell.Current.DisplayAlert("Excluir Cliente!", $"Você tem certeza de que quer excluir para sempre o cliente : \n\n \"{client.Name + " " + client.LastName}\"?", "Sim", "Não");
 
         if (result is true)
         {
@@ -76,6 +59,4 @@ public partial class ClientsViewModel : ObservableObject
             }
         }
     }
-
-
 }
