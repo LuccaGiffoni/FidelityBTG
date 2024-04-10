@@ -19,10 +19,8 @@ Os requisitos do teste foram:
 Todos os requisitos foram rigorasamente cumpridos e ainda adicionei mais coisas na classe de `Client`, com validações automáticas e facilitadas.
 
 ## Opcionais
-1. Persistência dos dados para que, ao executar novamente o aplicativo, os dados possam ser carregados e manipulados.
-2. Verificação do tipo de dado digitado em cada campo (por exemplo, a idade não pode receber uma letra).
-
-Dos opcionais, não tive tempo hábil de projetar os testes de unidade.
+1. Persistência dos dados para que, ao executar novamente o aplicativo, os dados possam ser carregados e manipulados, usando o SQLite como banco de dados interno da aplicação.
+2. Verificação do tipo de dado digitado em cada campo: todos os campos receberam a validação durante a inserção dos dados por parte do usuário para evitar qualquer tipo de erro.
 
 ## Instruções de Uso
 1. Clone este repositório em seu ambiente local.
