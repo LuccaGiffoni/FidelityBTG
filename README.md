@@ -29,3 +29,6 @@ Todos os requisitos foram rigorasamente cumpridos e ainda adicionei mais coisas 
 
 ## Testes da última release
 Os testes da aplicação também podem ser testados em máquinas Windows, ao baixar o .zip da última release liberada, instalando em side-load e autenticando com um novo certificado.
+
+## Print da Aplicação Funcionando
+![FidelityBTG-RealApplication](https://github.com/LuccaGiffoni/FidelityBTG/assets/81778943/70749ba1-5e43-46c7-8458-3afe32b1de10)
