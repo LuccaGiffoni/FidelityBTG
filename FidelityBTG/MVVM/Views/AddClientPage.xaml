@@ -2,38 +2,52 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FidelityBTG.MVVM.Views.AddClientPage"
-            xmlns:viewmodel="clr-namespace:FidelityBTG.MVVM.ViewModels"
-            Title="Criar Cliente">
+            xmlns:viewmodel="clr-namespace:FidelityBTG.MVVM.ViewModels" >
 
-    <VerticalStackLayout Margin="20" Spacing="5">
-        <Grid ColumnDefinitions="0.75*, 0.25*" ColumnSpacing="20">
-            <VerticalStackLayout Grid.Column="0" Spacing="5">
-                <Grid ColumnDefinitions="*,*" HorizontalOptions="FillAndExpand">
-                    <Entry Grid.Column="0" Placeholder="Nome" Text="{Binding Name}" />
-                    <Entry Grid.Column="1" Placeholder="Sobrenome" Text="{Binding LastName}" />
-                </Grid>
+    <VerticalStackLayout Margin="20" Spacing="70" >
+        <Label Text="Informações do Cliente | Cadastro" FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+        <VerticalStackLayout Spacing="10">
+            <Grid ColumnDefinitions="*,*" HorizontalOptions="FillAndExpand" ColumnSpacing="5">
+                <VerticalStackLayout Grid.Column="0" Spacing="5">
+                    <Label Text="Primeiro nome" HorizontalTextAlignment="Start" />
+                    <Entry x:Name="NameEntry" Placeholder="Nome" Text="{Binding Name}" />
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="1" Spacing="5">
+                    <Label Text="Sobrenome" HorizontalTextAlignment="Start" />
+                    <Entry x:Name="LastNameEntry" Placeholder="Sobrenome" Text="{Binding LastName}" />
+                </VerticalStackLayout>
+            </Grid>
 
-                <Entry Placeholder="Endereço" Text="{Binding Address}" />
+            <VerticalStackLayout>
+                <Label Text="Endereço" HorizontalTextAlignment="Start" />
+                <Entry x:Name="AddressEntry" Placeholder="Endereço" Text="{Binding Address}" />
             </VerticalStackLayout>
-
-            <VerticalStackLayout Grid.Column="1" Spacing="5" HorizontalOptions="End">
-                <HorizontalStackLayout Spacing="10">
+                
+            <HorizontalStackLayout Spacing="5" HorizontalOptions="CenterAndExpand">
+                <VerticalStackLayout Spacing="5">
                     <Label Text="Data de Nascimento" VerticalOptions="Center" />
                     <DatePicker Date="{Binding Birthday}" />
-                </HorizontalStackLayout>
+                </VerticalStackLayout>
 
-                <HorizontalStackLayout>
+                <VerticalStackLayout Spacing="5">
                     <Label Text="O usuário está ativo?" VerticalOptions="Center" />
                     <CheckBox IsChecked="{Binding IsActive}" />
-                </HorizontalStackLayout>
-            </VerticalStackLayout>
-        </Grid>
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
 
-        <Button
-            Command="{Binding AddClientCommand}"
-            FontAttributes="Bold"
-            Text="Criar Cliente"
-            TextColor="Black" />
-        
+        <VerticalStackLayout Spacing="10">
+            <Button
+                Command="{Binding AddClientCommand}"
+                FontAttributes="Bold"
+                Text="Criar Cliente"
+                BackgroundColor="Green"
+                TextColor="Black" />
+            <Button
+                Command="{Binding MoveBackToMenu}"
+                FontAttributes="Bold"
+                Text="Voltar"
+                MaximumWidthRequest="200"/>
+        </VerticalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

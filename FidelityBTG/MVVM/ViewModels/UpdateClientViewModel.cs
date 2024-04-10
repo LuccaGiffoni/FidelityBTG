@@ -12,7 +12,25 @@ public partial class UpdateClientViewModel : ObservableObject
 
     [ObservableProperty] private Client _client;
 
-    public UpdateClientViewModel(IClientService clientService) => _clientService = clientService;
+    public Command MoveBackToMenu { get; set; }
+
+    public UpdateClientViewModel(IClientService clientService)
+    {
+        _clientService = clientService;
+        MoveBackToMenu = new Command(GoBackAsync);
+    }
+
+    private static async void GoBackAsync()
+    {
+        try
+        {
+            await Shell.Current.GoToAsync("..");
+        }
+        catch (Exception ex)
+        {
+            await Shell.Current.DisplayAlert("Error", ex.Message, "OK");
+        }
+    }
 
     [RelayCommand]
     private async Task UpdateClient()
