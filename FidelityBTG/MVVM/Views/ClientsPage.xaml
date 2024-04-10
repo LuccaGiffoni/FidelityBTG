@@ -10,8 +10,8 @@
             <RowDefinition Height="0.3*" />
             <RowDefinition Height="0.7*" />
         </Grid.RowDefinitions>
-        
-        <VerticalStackLayout Spacing="50" Grid.Row="0" Margin="0, 40, 0, 0">
+
+        <VerticalStackLayout Spacing="50" Grid.Row="0" Margin="0, 40, 0, 0" >
             <StackLayout Spacing="-5">
                 <Label Text="Clube de Fidelidade" FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
                 <Label Text="Lucca Giffoni x BTG Pactual" FontSize="Micro" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>

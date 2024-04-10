@@ -24,9 +24,9 @@ public partial class ClientsViewModel(IClientService livroService) : ObservableO
 
             if (clients.Any())
             {
-                foreach (var livro in clients)
+                foreach (var client in clients)
                 {
-                    Clients.Add(livro);
+                    Clients.Add(client);
                 }
             }
         }
