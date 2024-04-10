@@ -43,20 +43,6 @@
                 FontAttributes="Bold"
                 Text="Atualizar Cliente"
                 BackgroundColor="Green"
-                TextColor="Black" />
-            <Button
-                Command="{Binding MoveBackToMenu}"
-                FontAttributes="Bold"
-                Text="Voltar"
-                MaximumWidthRequest="200"/>
-        </VerticalStackLayout>
-
-        <VerticalStackLayout Spacing="10">
-            <Button
-                Command="{Binding UpdateClientCommand}"
-                FontAttributes="Bold"
-                Text="Atualizar Cliente"
-                BackgroundColor="Green"
                 TextColor="Black" 
                 MaximumWidthRequest="300"/>
             <Button
