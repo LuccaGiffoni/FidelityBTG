@@ -20,11 +20,14 @@ public class Client
         }
     }
 
-    public int GetClientAge()
+    public int Age
     {
-        DateTime today = DateTime.Today;
-        int age = today.Year - Birthday.Year;
-        if (Birthday > today.AddYears(-age)) age--;
-        return age;
+        get
+        {
+            DateTime today = DateTime.Today;
+            int age = today.Year - Birthday.Year;
+            if (Birthday > today.AddYears(-age)) age--;
+            return age;
+        }
     }
 }
