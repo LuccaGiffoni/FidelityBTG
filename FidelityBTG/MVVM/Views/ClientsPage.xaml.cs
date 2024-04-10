@@ -14,13 +14,15 @@ public partial class ClientsPage : ContentPage
         _clientService = clientService;
     }
 
-    protected override void OnAppearing()
+    protected async override void OnAppearing()
     {
         base.OnAppearing();
 
-        var viewModel = (ClientsViewModel)BindingContext;
-
-        viewModel.GetAllClientsCommand.Execute(null);
+        var viewModel = BindingContext as ClientsViewModel;
+        if (viewModel != null)
+        {
+            await viewModel.GetAllClients();
+        }
     }
 
     private async void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
