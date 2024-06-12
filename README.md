@@ -1,7 +1,22 @@
 # Technical Test | 48-hours CRUD for Client Registration
-
 Welcome to one of my technical tests! 
 In this project, I developed a client registration application using .NET MAUI version 8, leveraging all the advantages of the MVVM architecture.
+
+## Summary
+### Key Features
+
+1. Client Management: Enables basic CRUD operations, allowing businesses to easily add, view, update, and delete client information.
+2. Local Data Persistence: Utilizes SQLite for the local storage and retrieval of client data, ensuring quick access and offline functionality.
+3. Cross-Platform Support: Developed using .NET MAUI, providing compatibility across Windows, macOS, iOS, and Android devices.
+4. Rapid Development: The application was developed within 48 hours, showcasing the ability to quickly deliver functional software solutions.
+5. User-Friendly Interface: Designed with a straightforward and intuitive user interface, making it accessible for quick adoption by businesses.
+   
+### Technologies
+
+1. .NET MAUI: For building a single codebase application that runs on multiple platforms.
+2. SQLite: For local data storage and management.
+3. C#: For core application logic and functionality.
+4. MVVM Pattern: For maintaining a clean separation between the user interface and business logic.
 
 ## Requirements
 
