@@ -1,34 +1,40 @@
-# Teste Técnico | Cadastro de Clientes BTG Pactual
-Bem-vindo ao teste técnico do BTG Pactual! Neste projeto, desenvolvi um aplicativo de cadastro de clientes utilizando .NET Maui na versão 8, com todas as vantagens da arquitetura MVVM.
+# Technical Test | BTG Pactual Client Registration
 
-## Requisitos
-Os requisitos do teste foram:
+Welcome to the BTG Pactual technical test! In this project, I developed a client registration application using .NET MAUI version 8, leveraging all the advantages of the MVVM architecture.
 
-1. Utilização do padrão MVVM (Model View ViewModel).
-2. Implementação da classe `Client` com os seguintes atributos:
-   - Nome (Name)
-   - Sobrenome (Lastname)
-   - Idade (Age)
-   - Endereço (Address)
-3. Tela inicial com lista de clientes e operações de inclusão, exclusão e alteração.
-   - As telas referentes a essas operações devem abrir em uma nova janela e fechar ao cancelar a operação ou salvar a inclusão/alteração.
-   - Para exclusão, pode ser utilizado uma mensagem de confirmação ou uma janela personalizada.
-4. Utilização de injeção de dependência.
-5. Publicação em um repositório privado no Github.com.
+## Requirements
 
-Todos os requisitos foram rigorasamente cumpridos e ainda adicionei mais coisas na classe de `Client`, com validações automáticas e facilitadas.
+The test requirements were:
 
-## Opcionais
-1. Persistência dos dados para que, ao executar novamente o aplicativo, os dados possam ser carregados e manipulados, usando o SQLite como banco de dados interno da aplicação.
-2. Verificação do tipo de dado digitado em cada campo: todos os campos receberam a validação durante a inserção dos dados por parte do usuário para evitar qualquer tipo de erro.
+1. Utilization of the MVVM (Model-View-ViewModel) pattern.
+2. Implementation of the `Client` class with the following attributes:
+   - **Name**
+   - **Lastname**
+   - **Age**
+   - **Address**
+3. Initial screen with a client list and operations for adding, deleting, and editing.
+   - The screens for these operations should open in a new window and close upon canceling the operation or saving the addition/edit.
+   - For deletion, a confirmation message or a custom window can be used.
+4. Use of dependency injection.
+5. Publishing in a private repository on [GitHub](https://github.com).
 
-## Instruções de Uso
-1. Clone este repositório em seu ambiente local.
-2. Abra a solução no Visual Studio ou em outro ambiente de desenvolvimento compatível com .NET Maui.
-3. Execute o aplicativo e teste as funcionalidades conforme descrito nos requisitos.
+All requirements were rigorously met, and additional features were added to the `Client` class, including automatic and facilitated validations.
 
-## Testes da última release
-Os testes da aplicação também podem ser testados em máquinas Windows, ao baixar o .zip da última release liberada, instalando em side-load e autenticando com um novo certificado.
+## Optional Features
 
-## Print da Aplicação Funcionando
+1. Data persistence so that when the application is run again, the data can be loaded and manipulated, using SQLite as the internal database of the application.
+2. Verification of the data type entered in each field: all fields received validation during data entry by the user to avoid any type of error.
+
+## Usage Instructions
+
+1. Clone this repository to your local environment.
+2. Open the solution in Visual Studio or another development environment compatible with .NET MAUI.
+3. Run the application and test the functionalities as described in the requirements.
+
+## Testing the Latest Release
+
+The application tests can also be run on Windows machines by downloading the .zip file of the latest released version, installing via side-load, and authenticating with a new certificate.
+
+## Screenshot of the Working Application
+
 ![FidelityBTG-RealApplication](https://github.com/LuccaGiffoni/FidelityBTG/assets/81778943/70749ba1-5e43-46c7-8458-3afe32b1de10)
