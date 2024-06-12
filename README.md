@@ -1,4 +1,4 @@
-# Technical Test | BTG Pactual Client Registration
+# Technical Test | 48-hours CRUD for Client Registration
 
 Welcome to the BTG Pactual technical test! In this project, I developed a client registration application using .NET MAUI version 8, leveraging all the advantages of the MVVM architecture.
 
